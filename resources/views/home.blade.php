@@ -14,7 +14,6 @@
             background-color: linear-gradient(45deg, #6d0f6d, #cf7acf, #89368b, #8f2a76);;
             font-family: Arial, sans-serif;
             animation: backgroundGradient 2s infinite;
-
         }
         @keyframes backgroundGradient {
             0% { background: linear-gradient(45deg, #6d0f6d, #cf7acf, #89368b, #8f2a76); }

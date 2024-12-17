@@ -25,12 +25,13 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'firstname' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'password' => static::$password ??= Hash::make('password'),
             'phone' => fake()->phoneNumber() ,
-            'domaine' => fake()->text(4) ,
+            'domaine' => fake()->text(10) ,
             'photo' => fake()->image(),
-            'type' => fake()->randomNumber(1 , 2),
+            'type' => fake()->randomNumber(1,2),
         ];
     }
 
