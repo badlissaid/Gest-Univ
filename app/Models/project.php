@@ -9,4 +9,16 @@ class project extends Model
 {
     /** @use HasFactory<\Database\Factories\ProjectFactory> */
     use HasFactory;
+    public $timestamps = false ;
+    protected $table = 'projects';
+    protected $fillable = [
+        'title',
+        'description',
+        'domaine',
+        'key word	'
+    ];
+    public function group()
+    {
+        return $this->belongsTo(group::class);
+    }
 }

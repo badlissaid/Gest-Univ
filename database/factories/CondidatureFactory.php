@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\student>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\condidature>
  */
-class StudentFactory extends Factory
+class CondidatureFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,7 @@ class StudentFactory extends Factory
     public function definition(): array
     {
         return [
-            'compétens' => fake()->text(6),
-            'spésific' => fake()->text(6),
+            //
         ];
     }
 }

@@ -31,7 +31,7 @@ class UserFactory extends Factory
             'phone' => fake()->phoneNumber() ,
             'domaine' => fake()->text(10) ,
             'photo' => fake()->image(),
-            'type' => fake()->randomNumber(1,2),
+            'type' => fake()->randomElement([1,2]),
         ];
     }
 

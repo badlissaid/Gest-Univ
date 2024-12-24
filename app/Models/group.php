@@ -11,8 +11,15 @@ class group extends Model
     use HasFactory;
     public $timestamps = false ;
     protected $table = 'groups';
+    protected $fillable = [
+
+    ];
     public function groupstud()
     {
-        return $this->belongsTo(groupstud::class);
+        return $this->hasMany(groupstud::class);
+    }
+    public function project()
+    {
+        return $this->hasOne(project::class);
     }
 }

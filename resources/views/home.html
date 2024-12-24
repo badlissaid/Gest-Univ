@@ -116,7 +116,13 @@
             };
         },
         methods: {
-            async login() { try { const response = await axios.post('/api/login', { email: this.email, password: this.password }); localStorage.setItem('token', response.data.access_token); this.$router.push('/student'); } catch (error) { console.error('Login failed:', error); } }
+            async login() {
+            try {
+            const response = await axios.post('/api/login', { email: this.email, password: this.password });
+            localStorage.setItem('token', response.data.access_token); this.$router.push('/student');
+            } catch (error)
+            { console.error('Login failed:', error); }
+            }
 
         }
     });

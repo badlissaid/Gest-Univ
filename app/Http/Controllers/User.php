@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -13,7 +14,7 @@ class User extends Controller
      */
     public function index()
     {
-        if (auth()->user()->tokenCan('cat')){
+        if (auth()->user()->tokenCan('Admin')){
             return response()->json(\App\Models\User::all());
         }
     }
@@ -94,5 +95,12 @@ class User extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function display_project()
+    {
+        if (auth()->user()->tokenCan('Admin','Teacher','Student')) {
+            return response()->json(project::all());
+        }
     }
 }

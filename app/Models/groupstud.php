@@ -13,15 +13,15 @@ class groupstud extends Model
     public $timestamps = false ;
     protected $table = 'groupstuds' ;
     protected $fillable =[
-      'groups_id',
-      'stud_id'
+      'group_id',
+      'student_id'
     ];
     public function groups()
     {
-        return $this->hasOne(group::class);
+        return $this->belongsTo(group::class);
     }
     public function student()
     {
-        return $this->hasMany(student::class);
+        return $this->hasOne(student::class);
     }
 }

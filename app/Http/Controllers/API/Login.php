@@ -113,11 +113,32 @@ class Login extends Controller
 
             $user = User::where('email', $request->email)->first();
             $type = $user->type ;
-            return response()->json([
-                'status' => true,
-                'message' => 'Succesfully login',
-                'type' => $type
-            ], 200);
+            switch ($type){
+                case 0 :
+                    return response()->json([
+                        'status' => true,
+                        'message' => 'Succesfully login',
+                        'type' => $type,
+                        'token' => $user->createToken('API TOKEN',['Admin'])->plainTextToken
+                    ], 200);
+                break;
+                case 1 :
+                    return response()->json([
+                        'status' => true,
+                        'message' => 'Succesfully login',
+                        'type' => $type,
+                        'token' => $user->createToken('API TOKEN',['Teacher'])->plainTextToken
+                    ], 200);
+                    break;
+                case 2 :
+                    return response()->json([
+                        'status' => true,
+                        'message' => 'Succesfully login',
+                        'type' => $type,
+                        'token' => $user->createToken('API TOKEN',['Student'])->plainTextToken
+                    ], 200);
+                    break;
+            }
 
         } catch (\Throwable $th) {
             // Return Json Response
